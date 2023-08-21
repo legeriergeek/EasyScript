@@ -12,7 +12,7 @@ typedef struct {
 Variable variables[100];
 int varCount = 0;
 
-void affiche(const char* texte) {
+void print(const char* texte) {
     printf("%s\n", texte);
 }
 
@@ -24,7 +24,7 @@ void int_variable(const char* nom, int valeur) {
     varCount++;
 }
 
-void affichevar(const char* nom) {
+void printvar(const char* nom) {
     for (int i = 0; i < varCount; i++) {
         if (strcmp(variables[i].name, nom) == 0) {
             printf("%d\n", variables[i].value);
@@ -55,7 +55,7 @@ int main(int argc, char* argv[]) {
         if (strcmp(mot, "affiche") == 0) {
             char texte[80];
             sscanf(ligne, "%*s \"%79[^\"]\"", texte);
-            affiche(texte);
+            print(texte);
         } else if (strcmp(mot, "int") == 0) {
             char nom[MAX_VAR_NAME_LENGTH];
             int valeur;
@@ -64,7 +64,7 @@ int main(int argc, char* argv[]) {
         } else if (strcmp(mot, "affichevar") == 0) {
             char nom[MAX_VAR_NAME_LENGTH];
             sscanf(ligne, "%*s %s", nom);
-            affichevar(nom);
+            printvar(nom);
         } else {
             printf("Commande non reconnue\n");
         }
