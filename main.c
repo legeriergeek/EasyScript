@@ -31,7 +31,7 @@ void printvar(const char* nom) {
             return;
         }
     }
-    printf("Variable non définie\n");
+    printf("Undefined variable\n");
 }
 
 int main(int argc, char* argv[]) {
@@ -42,7 +42,7 @@ int main(int argc, char* argv[]) {
 
     FILE* fichier = fopen(argv[1], "r");
     if (fichier == NULL) {
-        perror("Erreur lors de l'ouverture du fichier");
+        perror("Error while opening file");
         return 1;
     }
 
@@ -66,7 +66,7 @@ int main(int argc, char* argv[]) {
             sscanf(ligne, "%*s %s", nom);
             printvar(nom);
         } else {
-            printf("Commande non reconnue\n");
+            printf("unknown operator\n");
         }
     }
 
